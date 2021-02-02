@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CactusNotes</string>
     <string name="e_mail">E-mail</string>
+    <string name="username">Username</string>
 </resources>
