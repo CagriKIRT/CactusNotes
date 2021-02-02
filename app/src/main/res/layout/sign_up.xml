@@ -4,10 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signUpActivity"
+    tools:context=".signUpActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/signUp_email_textField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/e_mail"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="18dp"
+        android:textColorHint="@color/green"
+        android:layout_marginRight="18dp"
+        app:boxStrokeColor="@color/green"
+        app:boxStrokeErrorColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signUp_email_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="14dp"
+            android:fontFamily="@font/roboto" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-
-
-
-    />
+</androidx.constraintlayout.widget.ConstraintLayout>
