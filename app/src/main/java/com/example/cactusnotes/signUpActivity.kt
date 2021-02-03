@@ -2,6 +2,7 @@ package com.example.cactusnotes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.cactusnotes.databinding.SignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
@@ -10,10 +11,28 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=SignUpBinding.inflate(layoutInflater)
-        val view=binding.root
+        binding = SignUpBinding.inflate(layoutInflater)
+        val view = binding.root
         setContentView(view)
 
         supportActionBar?.title = getString(R.string.signUp_actionBar)
+
+        binding.signUpButton.setOnClickListener {
+            if (isEmailValid()) {
+                Toast.makeText(applicationContext, "Successful", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    private fun isEmailValid(): Boolean {
+        val email = EmailValidationControl(binding.signUpEmailEditText.text.toString())
+        return if (!email.isValid().result) {
+            binding.signUpEmailTextField.isErrorEnabled = true
+            binding.signUpEmailTextField.error = email.isValid().errorMessage
+            false
+        } else {
+            binding.signUpEmailTextField.isErrorEnabled = false
+            true
+        }
     }
 }

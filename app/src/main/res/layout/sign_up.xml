@@ -16,7 +16,9 @@
         android:layout_marginRight="18dp"
         android:hint="@string/e_mail"
         app:boxStrokeColor="@color/green"
-        app:boxStrokeErrorColor="@color/green"
+        app:boxStrokeErrorColor="@color/red"
+        app:errorTextColor="@color/red"
+        app:errorEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
