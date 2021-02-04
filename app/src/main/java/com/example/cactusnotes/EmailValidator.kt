@@ -1,6 +1,6 @@
 package com.example.cactusnotes
 
-class EmailValidationControl(private val email: String) {
+class EmailValidator(private val email: String) {
 
     fun isValid(): ValidationResult {
         return when {

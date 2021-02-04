@@ -25,7 +25,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun isEmailValid(): Boolean {
-        val email = EmailValidationControl(binding.signUpEmailEditText.text.toString())
+        val email = EmailValidator(binding.signUpEmailEditText.text.toString())
         return if (!email.isValid().result) {
             binding.signUpEmailTextField.isErrorEnabled = true
             binding.signUpEmailTextField.error = email.isValid().errorMessage
@@ -37,7 +37,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun isUsernameValid(): Boolean {
-        val username = UsernameValidationControl(binding.signUpUsernameEditText.text.toString())
+        val username = UsernameValidator(binding.signUpUsernameEditText.text.toString())
         return if (!username.isValid().result) {
             binding.signUpUsernameTextField.isErrorEnabled = true
             binding.signUpUsernameTextField.error = username.isValid().errorMessage
@@ -49,7 +49,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun isPasswordValid(): Boolean {
-        val password = PasswordValidationControl(binding.signUpPasswordEditText.text.toString())
+        val password = PasswordValidator(binding.signUpPasswordEditText.text.toString())
         return if (!password.isValid().result) {
             binding.signUpPasswordTextField.isErrorEnabled = true
             binding.signUpPasswordTextField.error = password.isValid().errorMessage

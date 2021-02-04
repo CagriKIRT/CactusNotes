@@ -1,6 +1,6 @@
 package com.example.cactusnotes
 
-class PasswordValidationControl(private val password: String) {
+class PasswordValidator(private val password: String) {
     fun isValid(): ValidationResult {
         return when {
             password.isEmpty() -> ValidationResult("Password is required.", false)
