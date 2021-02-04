@@ -18,7 +18,7 @@ class SignUpActivity : AppCompatActivity() {
         supportActionBar?.title = getString(R.string.signUp_actionBar)
 
         binding.signUpButton.setOnClickListener {
-            if (isEmailValid()) {
+            if (isEmailValid()&&isUsernameValid()) {
                 Toast.makeText(applicationContext, "Successful", Toast.LENGTH_LONG).show()
             }
         }
@@ -32,6 +32,18 @@ class SignUpActivity : AppCompatActivity() {
             false
         } else {
             binding.signUpEmailTextField.isErrorEnabled = false
+            true
+        }
+    }
+
+    private fun isUsernameValid(): Boolean {
+        val username = UsernameValidationControl(binding.signUpUsernameEditText.text.toString())
+        return if (!username.isValid().result) {
+            binding.signUpUsernameTextField.isErrorEnabled = true
+            binding.signUpUsernameTextField.error = username.isValid().errorMessage
+            false
+        } else {
+            binding.signUpUsernameTextField.isErrorEnabled = false
             true
         }
     }
