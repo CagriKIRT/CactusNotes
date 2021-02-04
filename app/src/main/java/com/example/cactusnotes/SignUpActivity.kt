@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.cactusnotes.databinding.SignUpBinding
+import com.example.cactusnotes.validators.EmailValidator
+import com.example.cactusnotes.validators.PasswordValidator
+import com.example.cactusnotes.validators.UsernameValidator
 
 class SignUpActivity : AppCompatActivity() {
 

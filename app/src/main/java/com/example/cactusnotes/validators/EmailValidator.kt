@@ -1,4 +1,6 @@
-package com.example.cactusnotes
+package com.example.cactusnotes.validators
+
+import com.example.cactusnotes.ValidationResult
 
 class EmailValidator(private val email: String) {
 
