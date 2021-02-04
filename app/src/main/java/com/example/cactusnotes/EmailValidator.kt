@@ -1,8 +1,8 @@
 package com.example.cactusnotes
 
-class EmailValidationControl(private val email: String) {
+class EmailValidator(private val email: String) {
 
-    fun isValid(): ValidationResult {
+    fun validate(): ValidationResult {
         return when {
             email.isEmpty() -> ValidationResult("Email is required.", false)
             email.containsAtAndDot().not() -> ValidationResult("Email is invalid.", false)
