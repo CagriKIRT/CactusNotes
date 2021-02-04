@@ -1,5 +1,6 @@
 package com.example.cactusnotes
 
+import android.opengl.ETC1.isValid
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -28,20 +29,16 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun isEmailValid(): Boolean {
-        val email = EmailValidator(binding.signUpEmailEditText.text.toString())
-        return if (!email.isValid().result) {
-            binding.signUpEmailTextField.isErrorEnabled = true
-            binding.signUpEmailTextField.error = email.isValid().errorMessage
-            false
-        } else {
-            binding.signUpEmailTextField.isErrorEnabled = false
-            true
-        }
+        val email = binding.signUpEmailEditText.text.toString()
+        val validationResult = EmailValidator(email).validate()
+        binding.signUpEmailTextField.isErrorEnabled = !validationResult.isValid
+        binding.signUpEmailTextField.error = validationResult.errorMessage
+        return validationResult.isValid
     }
 
     private fun isUsernameValid(): Boolean {
         val username = UsernameValidator(binding.signUpUsernameEditText.text.toString())
-        return if (!username.isValid().result) {
+        return if (!username.isValid().isValid) {
             binding.signUpUsernameTextField.isErrorEnabled = true
             binding.signUpUsernameTextField.error = username.isValid().errorMessage
             false
@@ -53,7 +50,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun isPasswordValid(): Boolean {
         val password = PasswordValidator(binding.signUpPasswordEditText.text.toString())
-        return if (!password.isValid().result) {
+        return if (!password.isValid().isValid) {
             binding.signUpPasswordTextField.isErrorEnabled = true
             binding.signUpPasswordTextField.error = password.isValid().errorMessage
             false
