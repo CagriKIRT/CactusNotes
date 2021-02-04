@@ -1,6 +1,5 @@
 package com.example.cactusnotes
 
-import android.opengl.ETC1.isValid
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -49,14 +48,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun isPasswordValid(): Boolean {
-        val password = PasswordValidator(binding.signUpPasswordEditText.text.toString())
-        return if (!password.isValid().isValid) {
-            binding.signUpPasswordTextField.isErrorEnabled = true
-            binding.signUpPasswordTextField.error = password.isValid().errorMessage
-            false
-        } else {
-            binding.signUpPasswordTextField.isErrorEnabled = false
-            true
-        }
+        val password = binding.signUpPasswordEditText.text.toString()
+        val validationResult = PasswordValidator(password).validate()
+        binding.signUpPasswordTextField.isErrorEnabled = !validationResult.isValid
+        binding.signUpPasswordTextField.error = validationResult.errorMessage
+        return validationResult.isValid
     }
 }
