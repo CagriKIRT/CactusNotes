@@ -36,15 +36,11 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun isUsernameValid(): Boolean {
-        val username = UsernameValidator(binding.signUpUsernameEditText.text.toString())
-        return if (!username.isValid().isValid) {
-            binding.signUpUsernameTextField.isErrorEnabled = true
-            binding.signUpUsernameTextField.error = username.isValid().errorMessage
-            false
-        } else {
-            binding.signUpUsernameTextField.isErrorEnabled = false
-            true
-        }
+        val username = binding.signUpUsernameEditText.text.toString()
+        val validationResult = UsernameValidator(username).validate()
+        binding.signUpUsernameTextField.isErrorEnabled = !validationResult.isValid
+        binding.signUpUsernameTextField.error = validationResult.errorMessage
+        return validationResult.isValid
     }
 
     private fun isPasswordValid(): Boolean {
