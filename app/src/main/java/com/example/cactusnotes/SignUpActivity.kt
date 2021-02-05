@@ -18,12 +18,23 @@ class SignUpActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        supportActionBar?.title = getString(R.string.signUp_actionBar)
+        supportActionBar?.title = getString(R.string.signUp_actionBarTitle)
 
         binding.signUpButton.setOnClickListener {
             if (isEmailValid() && isUsernameValid() && isPasswordValid()) {
-                Toast.makeText(applicationContext, "Successful", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    applicationContext,
+                    getString(R.string.successful),
+                    Toast.LENGTH_LONG
+                ).show()
             }
+        }
+        binding.alreadyHaveAccountTextView.setOnClickListener {
+            Toast.makeText(
+                this,
+                getString(R.string.already_have_an_account),
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 

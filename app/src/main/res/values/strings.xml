@@ -4,6 +4,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="sign_up">SIGN UP</string>
-    <string name="signUp_actionBar">Sign up</string>
+    <string name="signUp_actionBarTitle">Sign up</string>
     <string name="already_have_an_account">ALREADY HAVE AN ACCOUNT?</string>
+    <string name="successful">Successful</string>
 </resources>
