@@ -7,6 +7,9 @@ import com.example.cactusnotes.databinding.SignUpBinding
 import com.example.cactusnotes.validators.EmailValidator
 import com.example.cactusnotes.validators.PasswordValidator
 import com.example.cactusnotes.validators.UsernameValidator
+import com.example.cactusnotes.validators.Validator
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -38,27 +41,20 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun isEmailValid(): Boolean {
-        val email = binding.signUpEmailEditText.text.toString()
-        val validationResult = EmailValidator(email).validate()
-        binding.signUpEmailTextField.isErrorEnabled = !validationResult.isValid
-        binding.signUpEmailTextField.error = validationResult.errorMessage
+    private fun TextInputLayout.isFieldValid(validator: Validator): Boolean {
+        val editText = editText
+        val field = editText!!.text.toString()
+        val validationResult = validator.validate(field)
+        isErrorEnabled = !validationResult.isValid
+        error = validationResult.errorMessage
         return validationResult.isValid
     }
 
-    private fun isUsernameValid(): Boolean {
-        val username = binding.signUpUsernameEditText.text.toString()
-        val validationResult = UsernameValidator(username).validate()
-        binding.signUpUsernameTextField.isErrorEnabled = !validationResult.isValid
-        binding.signUpUsernameTextField.error = validationResult.errorMessage
-        return validationResult.isValid
-    }
+    private fun isEmailValid() = binding.signUpEmailTextField.isFieldValid(EmailValidator())
 
-    private fun isPasswordValid(): Boolean {
-        val password = binding.signUpPasswordEditText.text.toString()
-        val validationResult = PasswordValidator(password).validate()
-        binding.signUpPasswordTextField.isErrorEnabled = !validationResult.isValid
-        binding.signUpPasswordTextField.error = validationResult.errorMessage
-        return validationResult.isValid
-    }
+    private fun isUsernameValid() =
+        binding.signUpUsernameTextField.isFieldValid(UsernameValidator())
+
+    private fun isPasswordValid() =
+        binding.signUpPasswordTextField.isFieldValid(PasswordValidator())
 }

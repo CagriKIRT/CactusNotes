@@ -2,14 +2,14 @@ package com.example.cactusnotes.validators
 
 import com.example.cactusnotes.ValidationResult
 
-class EmailValidator(private val email: String) {
+class EmailValidator : Validator {
 
-    fun validate(): ValidationResult {
+    override fun validate(field: String): ValidationResult {
         return when {
-            email.isEmpty() -> ValidationResult("Email is required.", false)
-            email.containsAtAndDot().not() -> ValidationResult("Email is invalid.", false)
-            email.length < 5 -> ValidationResult("Email is invalid", false)
-            email.length > 50 -> ValidationResult("Email is invalid", false)
+            field.isEmpty() -> ValidationResult("Email is required.", false)
+            field.containsAtAndDot().not() -> ValidationResult("Email is invalid.", false)
+            field.length < 5 -> ValidationResult("Email is invalid", false)
+            field.length > 50 -> ValidationResult("Email is invalid", false)
             else -> ValidationResult(null, true)
         }
     }

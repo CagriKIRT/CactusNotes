@@ -2,13 +2,14 @@ package com.example.cactusnotes.validators
 
 import com.example.cactusnotes.*
 
-class PasswordValidator(private val password: String) {
-    fun validate(): ValidationResult {
+class PasswordValidator : Validator {
+
+    override fun validate(field: String): ValidationResult {
         return when {
-            password.isEmpty() -> ValidationResult("Password is required.", false)
-            password.length < 7 -> ValidationResult("Password is too short", false)
-            password.length > 40 -> ValidationResult("Password is too long", false)
-            !isPasswordNamingValid() -> ValidationResult(
+            field.isEmpty() -> ValidationResult("Password is required.", false)
+            field.length < 7 -> ValidationResult("Password is too short", false)
+            field.length > 40 -> ValidationResult("Password is too long", false)
+            !field.isNamingValid() -> ValidationResult(
                 "Password must contain one digit, one uppercase letter, one lowercase letter and one special character.",
                 false
             )
@@ -16,8 +17,8 @@ class PasswordValidator(private val password: String) {
         }
     }
 
-    private fun isPasswordNamingValid() =
-        password.containsDigit() && password.containsLowercase() && password.containsUppercase() && password.containsSpecialCharacter()
-
-
+    private fun String.isNamingValid() = containsDigit()
+            && containsLowercase()
+            && containsUppercase()
+            && containsSpecialCharacter()
 }
