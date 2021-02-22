@@ -8,64 +8,41 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signUp_email_textField"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="18dp"
+        style="@style/button_and_outlinebox_style"
         android:hint="@string/e_mail"
         app:boxStrokeColor="@color/green"
         app:boxStrokeErrorColor="@color/red"
-        app:errorTextColor="@color/red"
         app:errorEnabled="false"
+        app:errorTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signUp_email_editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:padding="16dp"
-            android:textSize="16sp" />
+            style="@style/textinputedittext_style" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signUp_username_textField"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginRight="18dp"
+        style="@style/button_and_outlinebox_style"
         android:hint="@string/username"
         app:boxStrokeColor="@color/green"
         app:boxStrokeErrorColor="@color/red"
-        app:errorTextColor="@color/red"
         app:errorEnabled="false"
+        app:errorTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signUp_email_textField">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signUp_username_editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:padding="16dp"
-            android:textSize="16sp" />
+            style="@style/textinputedittext_style" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signUp_password_textField"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginRight="18dp"
+        style="@style/button_and_outlinebox_style"
         android:hint="@string/password"
         app:boxStrokeColor="@color/green"
         app:boxStrokeErrorColor="@color/green"
@@ -76,20 +53,12 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signUp_password_editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:padding="16dp"
-            android:textSize="16sp" />
+            style="@style/textinputedittext_style" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/signUp_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginRight="18dp"
+        style="@style/button_and_outlinebox_style"
         android:padding="16dp"
         android:text="@string/sign_up"
         app:layout_constraintEnd_toEndOf="parent"
